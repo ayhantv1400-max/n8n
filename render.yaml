@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: n8n
+    runtime: image
+    image:
+      url: n8nio/n8n:latest
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: WEBHOOK_URL
+        value: https://your-service-name.onrender.com
+    disk:
+      name: n8n-data
+      mountPath: /home/node/.n8n
+      sizeGB: 1
